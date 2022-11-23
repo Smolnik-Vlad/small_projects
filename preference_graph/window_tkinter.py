@@ -27,36 +27,36 @@ def open_file():
         entry_field.insert(1.0, f.read())
 
 def save_file():
-    str=entry_field.get(1.0, END)
+    str = entry_field.get(1.0, END)
     new_file=fl.asksaveasfile(title="Сохранить файл", defaultextension=".txt")
     if new_file:
         new_file.write(str)
         new_file.close()
 
-def solution():
-    window = Tk()
-    window.title("Граф предпочтений")
-    window.geometry("400x350")
-    mainmenu = Menu(window)
-    window.config(menu=mainmenu)
 
-    nodes=Menu(mainmenu, tearoff=0)
-    nodes.add_command(label="new file", command=new_file)
-    nodes.add_command(label="open file", command=open_file)
-    nodes.add_command(label="save as", command=save_file)
+window = Tk()
+window.title("Граф предпочтений")
+window.geometry("400x350")
+mainmenu = Menu(window)
+window.config(menu=mainmenu)
 
-    mainmenu.add_cascade(label="file", menu=nodes)
-    mainmenu.add_cascade(label="info", command=info_about_prog)
+nodes=Menu(mainmenu, tearoff=0)
+nodes.add_command(label="new file", command=new_file)
+nodes.add_command(label="open file", command=open_file)
+nodes.add_command(label="save as", command=save_file)
 
-    label_top=Label(text="Поле для ввода выражения")
-    entry_field=Text(width=30,  height=17)
-    scroll = Scrollbar()
-    active_button=Button(text="Нарисовать граф", command=make_graph)
+mainmenu.add_cascade(label="file", menu=nodes)
+mainmenu.add_cascade(label="info", command=info_about_prog)
 
-    label_top.pack(anchor="center")
-    entry_field.pack(side="top" )
-    scroll.pack(side=RIGHT, fill=Y)
-    entry_field.config(yscrollcommand=scroll.set)
-    active_button.pack(pady=15)
+label_top=Label(text="Поле для ввода выражения")
+entry_field = Text(width=30,  height=17)
+scroll = Scrollbar()
+active_button=Button(text="Нарисовать граф", command=make_graph)
 
-    window.mainloop()
+label_top.pack(anchor="center")
+entry_field.pack(side="top" )
+scroll.pack(side=RIGHT, fill=Y)
+entry_field.config(yscrollcommand=scroll.set)
+active_button.pack(pady=15)
+
+window.mainloop()

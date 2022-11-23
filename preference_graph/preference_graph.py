@@ -1,2 +1,2 @@
-from window_tkinter import solution
-solution()
+import window_tkinter
+window_tkinter
